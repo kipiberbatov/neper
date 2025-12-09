@@ -1156,7 +1156,6 @@ neut_tess_var_val (struct TESS *pTess,
     }
     else
       status = -1;
-    ut_string_string ("%d", &typetmp);
   }
 
   else if (!strcmp (entity, "ver"))
