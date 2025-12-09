@@ -126,8 +126,8 @@ neut_sim_simres_type (char *res, struct SIMRES *pSimRes)
   }
 
   else if (!strcmp (res, "strain")
-        || !strcmp (res, "strain-el")
-        || !strcmp (res, "strain-pl")
+        || !strcmp (res, "strain_el")
+        || !strcmp (res, "strain_pl")
         || !strcmp (res, "stress"))
   {
     ut_string_string ("tensor", &(*pSimRes).type);

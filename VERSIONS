@@ -1,4 +1,4 @@
-New in 4.10.2-23 (09 Dec 2025):
+New in 4.10.2-24 (09 Dec 2025):
 - module -T: improved import and regularization of tessellations of non-cubical
   domains, added -ori transform ori for tesrs, added -statcell
   oridisanisoaxes_crys, added -format ovm, fixed -statedge, fixed -stat* scale,
@@ -6,6 +6,7 @@ New in 4.10.2-23 (09 Dec 2025):
   improvements.
 - module -M: fixed -dim 2 -interface cohesive, fixed -loadmesh on $Topology=0
   meshes, made minor other fixes.
+- module -S: made minor fixes.
 - general: fixed CMake compatibility.
 
 New in 4.10.1 (09 Oct 2024):
