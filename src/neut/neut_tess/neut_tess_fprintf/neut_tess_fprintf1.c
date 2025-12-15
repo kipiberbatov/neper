@@ -430,6 +430,7 @@ neut_tess_fprintf_svg (FILE * file, char *format, struct TESS Tess)
   double **bbox = ut_alloc_2d (3, 2);
   char **vars = NULL, **vals = NULL;
   int varqty;
+  double horizontl_margin, vertical_margin;
 
   ut_string_function (format, NULL, &vars, &vals, &varqty);
   ut_string_string ("", &unit);
@@ -444,11 +445,16 @@ neut_tess_fprintf_svg (FILE * file, char *format, struct TESS Tess)
 
   neut_tess_bboxsize (Tess, bboxsize);
 
+  horizontl_margin = (bbox[0][1] - bbox[0][0]) / 20;
+  vertical_margin  = (bbox[1][1] - bbox[1][0]) / 20;
+
   fprintf (file, "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n");
   fprintf (file, "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n");
   fprintf (file, "<!-- Generator: Neper (https://neper.info) -->\n");
   fprintf (file, "<svg width=\"%f%s\" height=\"%f%s\" viewBox=\"%f %f %f %f\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\">\n",
-                 bboxsize[0], unit, bboxsize[1], unit, bbox[0][0], bbox[1][0], bbox[0][1], bbox[1][1]);
+                 bboxsize[0], unit, bboxsize[1], unit,
+                 bbox[0][0] - horizontl_margin, bbox[1][0] - vertical_margin,
+                 bbox[0][1] + horizontl_margin * 1.1, bbox[1][1] + vertical_margin * 1.1);
 
   for (i = 1; i <= Tess.FaceQty; i++)
   {
