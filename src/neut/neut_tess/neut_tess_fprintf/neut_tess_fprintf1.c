@@ -452,7 +452,7 @@ neut_tess_fprintf_svg (FILE * file, char *format, struct TESS Tess)
 
   for (i = 1; i <= Tess.FaceQty; i++)
   {
-    fprintf (file,"  <path stroke=\"none\" fill=\"#FFFFFF\" d=\"M ");
+    fprintf (file,"  <path stroke=\"black\" fill=\"#FFFFFF\" d=\"M ");
 
     for (j = 1; j <= Tess.FaceVerQty[i]; j++)
       fprintf (file, " %f,%f %s", Tess.VerCoo[Tess.FaceVerNb[i][j]][0], Tess.VerCoo[Tess.FaceVerNb[i][j]][1],
