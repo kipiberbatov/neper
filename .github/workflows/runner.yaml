@@ -13,3 +13,7 @@ jobs:
   website:
     name: Website
     uses: ./.github/workflows/website.yaml
+
+  linux:
+    name: Linux
+    uses: ./.github/workflows/linux.yaml
