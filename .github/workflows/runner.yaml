@@ -1,0 +1,15 @@
+name: Run all jobs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  website:
+    name: Website
+    uses: ./.github/workflows/website.yaml
