@@ -1,0 +1,62 @@
+name: Build Neper executable on MacOS for arm64 and x86_64
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    name: Build Neper executable on MacOS
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            arch: arm64
+          - os: macos-15-intel
+            arch: x86_64
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install GNU Scientific Library
+        run: brew install gsl
+
+      - name: Install OpenMP
+        run: brew install libomp
+
+      - name: Create build directory
+        run: mkdir -p src/build
+
+      - name: Generate Makefile
+        working-directory: src/build
+        env:
+          MACOSX_DEPLOYMENT_TARGET: 10.15
+        run: |
+          export LDFLAGS="-L$(brew --prefix libomp)/lib"
+          cmake \
+            -DCMAKE_C_COMPILER=$(brew --prefix llvm@18)/bin/clang \
+            -DCMAKE_CXX_COMPILER=$(brew --prefix llvm@18)/bin/clang++ \
+            -DOpenMP_C_FLAGS="-fopenmp -I$(brew --prefix libomp)/include" \
+            -DOpenMP_CXX_FLAGS="-fopenmp -I$(brew --prefix libomp)/include" \
+            -DOpenMP_C_LIB_NAMES="omp" \
+            -DOpenMP_CXX_LIB_NAMES="omp" \
+            -DOpenMP_omp_LIBRARY=$(brew --prefix libomp)/lib/libomp.dylib \
+            ..
+
+      - name: Build Neper executable
+        working-directory: src/build
+        run: make
+
+      - name: Run tests
+        continue-on-error: true
+        working-directory: src/build
+        run: ctest
+
+      - name: Upload Neper executable
+        uses: actions/upload-artifact@v6
+        with:
+          name: neper-macos-${{ matrix.arch }}
+          path: src/build/neper
+          retention-days: ${{ github.event.repository.private && 1 || 7 }}
