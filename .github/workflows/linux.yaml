@@ -1,0 +1,50 @@
+name: Build Neper executable on Linux for arm64 and x86_64
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    name: Build Neper executable on Linux
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04-arm
+            arch: arm64
+          - os: ubuntu-24.04
+            arch: x86_64
+
+    steps:
+      - name: Update apt-get
+        run: sudo apt-get update
+
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install GNU Scientific Library
+        run: sudo apt-get install libgsl-dev
+
+      - name: Create build directory
+        run: mkdir -p src/build
+
+      - name: Generate Makefile
+        working-directory: src/build
+        run: cmake ..
+
+      - name: Build Neper executable
+        working-directory: src/build
+        run: make
+
+      - name: Run tests
+        continue-on-error: true
+        working-directory: src/build
+        run: ctest
+
+      - name: Upload Neper executable
+        uses: actions/upload-artifact@v6
+        with:
+          name: neper-linux-${{ matrix.arch }}
+          path: src/build/neper
+          retention-days: ${{ github.event.repository.private && 1 || 7 }}

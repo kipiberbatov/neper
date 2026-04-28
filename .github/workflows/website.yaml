@@ -1,0 +1,77 @@
+name: Build HTML documentation and deploy the website to GitHub Pages
+
+on:
+  workflow_call:
+
+jobs:
+  build-website:
+    name: Build website with Sphinx using a theme provided by Read the Docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update apt-get
+        run: sudo apt-get update
+
+      - name: Set up Git repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install Sphinx Read The Docs
+        run: pip install sphinx
+
+      - name: Install Read the Docs theme for Sphinx
+        run: pip install sphinx-rtd-theme
+
+      - name: Build website
+        working-directory: doc
+        run: make html
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: doc/build/html
+          retention-days: ${{ github.event.repository.private && 1 || 7 }}
+
+  check-pages-status:
+    name: Check whether GitHub Pages is enabled
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.check-pages.outputs.enabled }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Check if GitHub Pages is enabled
+        id: check-pages
+        run: bash .github/scripts/check-pages-enabled.sh
+
+  deploy-website:
+    name: Deploy to GitHub Pages
+    needs: [build-website, check-pages-status]
+    if: >
+      needs.check-pages-status.outputs.enabled == 'true' &&
+      github.event_name != 'pull_request'
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Set up GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
