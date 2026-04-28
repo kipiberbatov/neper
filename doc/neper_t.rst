@@ -241,7 +241,7 @@ These options can be used to set the cell morphology.
 
   - :data:`diameq`: the equivalent diameter [#size_diameq]_;
 
-  - :data:`sphericity`: the sphericity, and :data:`1-sphericity`: 1 :math:`-` the sphericity (or :data:`circularity` and :data:`1-circularity`). [#sphericity-circularity]_ [#1-sphericity]_
+  - :data:`sphericity`: the sphericity, and :data:`1-sphericity`: 1 :math:`-` the sphericity (or :data:`circularity` and :data:`1-circularity`). [#sphericity-circularity]_ [#one-sphericity]_
 
     All of :data:`size`, :data:`diameq` and :data:`sphericity` (and their variants) can be defined by :ref:`statistical distributions <statistical_distributions>` or cell by cell.  If the number of cells is defined using option :option:`-n`, the :data:`size` or :data:`diameq` distribution is scaled to get the specified number of cells.  At the opposite, if :data:`-n from_morpho` is used, the number of cells is determined from the :data:`size` or :data:`diameq` distribution.  An interval of possible values can also be provided using :data:`interval(<min>,<max>)`.  Cell-by-cell values can be provided using :data:`file(<file_name>)`, where :data:`<file_name>` contains the cell values.  A unique (numeral) value to be assigned to all cells can also be provided directly.
 
@@ -1213,7 +1213,7 @@ References
 
 .. [#sphericity-circularity] Terms :data:`sphericity` and :data:`circularity` apply to 3D and 2D, respectively, but can be used interchangeably. The sphericity of a polyhedron corresponds to the ratio of the surface area of the sphere of equivalent volume to the surface area of the polyhedron. Similarly, the circularity of a polygon corresponds to the ratio of the perimeter of the circle of equivalent surface area to the perimeter of the polygon.
 
-.. [#1-sphericity] The reason behind the :data:`1-sphericity` (or :data:`1-circularity`) variable is that, for a grain growth microstructure, 1 :math:`-` the sphericity follows a lognormal distribution [#CMAME2018]_.
+.. [#one-sphericity] The reason behind the :data:`1-sphericity` (or :data:`1-circularity`) variable is that, for a grain growth microstructure, 1 :math:`-` the sphericity follows a lognormal distribution [#CMAME2018]_.
 
 .. [#endianness] Endianness is both written in the tesr file and tested on the system when reading the tesr file, so that the user normally does not have to care about it (even when transferring files across systems).
 
