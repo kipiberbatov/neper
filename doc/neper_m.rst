@@ -4,8 +4,7 @@
 .. |rasterscale| replace:: :data:`rasterscale(<fact>)` or :data:`rasterscale(<fact_x>,<fact_y>,<fact_z>)`: scale the number of voxels of a raster tessellation, where :data:`<fact>` is the scaling factor that applies in the three directions, and :data:`<fact_x>`, :data:`<fact_y>` and :data:`<fact_z>` are the scaling factors along :data:`x`, :data:`y` and :data:`z`, respectively
 .. |crop| replace:: :data:`crop(<xmin>,<xmax>,<ymin>,<ymax>,<zmin>,<zmax>)`: crop a region of a raster tessellation, where :data:`<xmin>`, :data:`<xmax>`, :data:`<ymin>`, :data:`<ymax>`, :data:`<zmin>` and :data:`<zmax>` are the minimum and maximum positions along :data:`x`, :data:`y` and :data:`z`, respectively. For 2D raster tessellations, the :data:`z` values can be omitted
 
-.. index::
-   single: -M
+.. index:: single: -M
 
 .. _neper_m:
 
@@ -151,11 +150,9 @@ Meshing Options
 
   **Default value**: :data:`tet` in 3D and :data:`tri` in 2D.
 
-.. index::
-   single: -cl
+.. index:: single: -cl
 
-.. index::
-   single: -rcl
+.. index:: single: -rcl
 
 .. option:: -cl or -rcl <length> (secondary option)
 
@@ -382,9 +379,8 @@ Transformation Options
 
   **Default value**: -.
 
-.. index::
-   single: -sortnode
-   single: -sortelt
+.. index:: single: -sortnode
+.. index:: single: -sortelt
 
 .. option:: -sort{node,elt} <sort_expression> (secondary option)
 
@@ -563,9 +559,8 @@ These advanced options set running conditions for the meshing libraries (2D and 
 
   **Default value**: :data:`0.02`.
 
-.. index::
-   single: -mesh2dmaxtime
-   single: -mesh3dmaxtime
+.. index:: single: -mesh2dmaxtime
+.. index:: single: -mesh3dmaxtime
 
 .. option:: -mesh{2,3}dmaxtime <time> (secondary option)
 
@@ -574,9 +569,8 @@ These advanced options set running conditions for the meshing libraries (2D and 
 
   **Default value**: :data:`1000`.
 
-.. index::
-   single: -mesh2drmaxtime
-   single: -mesh3drmaxtime
+.. index:: single: -mesh2drmaxtime
+.. index:: single: -mesh3drmaxtime
 
 .. option:: -mesh{2,3}drmaxtime <relative_time> (secondary option)
 
