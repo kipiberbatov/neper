@@ -1213,7 +1213,7 @@ References
 
 .. [#sphericity-circularity] Terms :data:`sphericity` and :data:`circularity` apply to 3D and 2D, respectively, but can be used interchangeably. The sphericity of a polyhedron corresponds to the ratio of the surface area of the sphere of equivalent volume to the surface area of the polyhedron. Similarly, the circularity of a polygon corresponds to the ratio of the perimeter of the circle of equivalent surface area to the perimeter of the polygon.
 
-.. [#one-sphericity] The reason behind the :data:`1-sphericity` (or :data:`1-circularity`) variable is that, for a grain growth microstructure, 1 :math:`-` the sphericity follows a lognormal distribution [#CMAME2018]_.
+.. [#one-sphericity] The reason behind the :data:`1-sphericity` (or :data:`1-circularity`) variable is that, for a grain growth microstructure, 1 :math:`-` the sphericity follows a lognormal distribution [CMAME2018]_.
 
 .. [#endianness] Endianness is both written in the tesr file and tested on the system when reading the tesr file, so that the user normally does not have to care about it (even when transferring files across systems).
 
