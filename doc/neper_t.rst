@@ -4,8 +4,7 @@
 .. |crop| replace:: :data:`crop(<xmin>,<xmax>,<ymin>,<ymax>,<zmin>,<zmax>)`: crop a region of a raster tessellation, where :data:`<xmin>`, :data:`<xmax>`, :data:`<ymin>`, :data:`<ymax>`, :data:`<zmin>` and :data:`<zmax>` are the minimum and maximum positions along :data:`x`, :data:`y` and :data:`z`, respectively. For 2D raster tessellations, the :data:`z` values can be omitted
 .. |rasterscale| replace:: :data:`rasterscale(<fact>)` or :data:`rasterscale(<fact_x>,<fact_y>,<fact_z>)`: : scale the number of voxels of a raster tessellation, where :data:`factor` is the scaling factor that applies in the three directions, and :data:`<fact_x>`, :data:`<fact_y>` and :data:`<fact_z>` are the scaling factors along :data:`x`, :data:`y` and :data:`z`, respectively
 
-.. index::
-   single: -T
+.. index:: single: -T
 
 .. _neper_t:
 

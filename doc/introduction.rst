@@ -269,9 +269,7 @@ Some options may take several argument values, which can be combined using *sepa
 Initialization File
 ~~~~~~~~~~~~~~~~~~~
 
-.. index::
-
-   --rcfile, initialization file
+.. index:: --rcfile, initialization file
 
 When Neper is run, it starts by reading commands from an initialization file, :file:`$HOME/.neperrc`, if that file exists.  Another initialization file can be specified with option :data:`--rcfile`, before calling a module:
 
@@ -317,9 +315,7 @@ The environment variable is unset by default.
 Conventions Used in This Manual
 -------------------------------
 
-.. index::
-
-   single: dollar sign $, shell prompt
+.. index:: single: dollar sign $, shell prompt
 
 - A command entered at the terminal is shown like this:
 

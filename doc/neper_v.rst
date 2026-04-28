@@ -3,8 +3,7 @@
 .. |scale| replace:: :data:`scale(<fact_x>,<fact_y>,<fact_z>)`: scale by :data:`<fact_x>`, :data:`<fact_y>` and :data:`<fact_z>` along :data:`x`, :data:`y` and :data:`z`, respectively
 .. |data_description| replace:: This can be done either directly, by providing one or several values (e.g. the RGB channel values for color) or indirectly, e.g. using scalar values that are converted in color using a given *color scheme*.  In this case (and for real-type data), a scale image is also generated, and its properties (minimum, maximum and tick values) can be specified.
 
-.. index::
-   single: -V
+.. index:: single: -V
 
 .. _neper_v:
 
@@ -159,8 +158,7 @@ Tessellation Data Loading and Rendering Options
 
 The following option enables the definition of the cell data itself (pole figure space only):
 
-.. index::
-   single: -datacell
+.. index:: single: -datacell
 
 .. option:: -datacell <type>:<value>
 
@@ -187,20 +185,19 @@ The following options enable the definition of the properties (color and size) o
 
 For each entity, all attributes can be set, although the may not apply in certain spaces (see option :option:`-space`). Specifically, :data:`-data{cell,poly,face}rad` do not apply in real space.
 
-.. index::
-   single: -datacellcol
-   single: -datapolycol
-   single: -datafacecol
-   single: -dataedgecol
-   single: -datavercol
-   single: -dataseedcol
-   single: -datavoxcol
-   single: -datavoidvoxcol
-   single: -datacrystaledgecol
-   single: -datacelledgecol
-   single: -datavoxedgecol
-   single: -datacrystalcol
-   single: -data...col
+.. index:: single: -datacellcol
+.. index:: single: -datapolycol
+.. index:: single: -datafacecol
+.. index:: single: -dataedgecol
+.. index:: single: -datavercol
+.. index:: single: -dataseedcol
+.. index:: single: -datavoxcol
+.. index:: single: -datavoidvoxcol
+.. index:: single: -datacrystaledgecol
+.. index:: single: -datacelledgecol
+.. index:: single: -datavoxedgecol
+.. index:: single: -datacrystalcol
+.. index:: single: -data...col
 
 .. option:: -data{cell,poly,face,edge,ver,seed,crystal,vox,voidvox,{crystal,cell,vox}edge}col <color>
 
@@ -244,17 +241,16 @@ For each entity, all attributes can be set, although the may not apply in certai
   **Default value**: :data:`id` for cells and crystals, :data:`white` for faces, :data:`black` for edges and vertices, :data:`gray` for seeds, voxels and void voxels, :data:`black` for voxel edges.
 
 
-.. index::
-   single: -datacellcolscheme
-   single: -datapolycolscheme
-   single: -datafacecolscheme
-   single: -dataedgecolscheme
-   single: -datavercolscheme
-   single: -dataseedcolscheme
-   single: -datavoxcolscheme
-   single: -datavoidvoxcolscheme
-   single: -datavoxedgecolscheme
-   single: -data...colscheme
+.. index:: single: -datacellcolscheme
+.. index:: single: -datapolycolscheme
+.. index:: single: -datafacecolscheme
+.. index:: single: -dataedgecolscheme
+.. index:: single: -datavercolscheme
+.. index:: single: -dataseedcolscheme
+.. index:: single: -datavoxcolscheme
+.. index:: single: -datavoidvoxcolscheme
+.. index:: single: -datavoxedgecolscheme
+.. index:: single: -data...colscheme
 
 .. option:: -data{cell,poly,face,edge,ver,seed,crystal,vox}colscheme <col_scheme>
 
@@ -277,14 +273,13 @@ For each entity, all attributes can be set, although the may not apply in certai
 
   **Default value**: :data:`palette` for integer values, :data:`viridis` for real values, and :data:`rodrigues` for crystal orientations.
 
-.. index::
-   single: -datacelltrs
-   single: -datapolytrs
-   single: -datafacetrs
-   single: -dataedgetrs
-   single: -datavertrs
-   single: -dataseedtrs
-   single: -data...trs
+.. index:: single: -datacelltrs
+.. index:: single: -datapolytrs
+.. index:: single: -datafacetrs
+.. index:: single: -dataedgetrs
+.. index:: single: -datavertrs
+.. index:: single: -dataseedtrs
+.. index:: single: -data...trs
 
 .. option:: -data{cell,poly,face,edge,ver,seed,crystal}trs <transparency>
 
@@ -425,9 +420,8 @@ The following options enable the definition of the properties (color, size, etc.
 
   **Default value**: :data:`palette` for integer values, :data:`viridis` for real values, and :data:`rodrigues` for crystal orientations.
 
-.. index::
-   single: -dataelt2dtrs
-   single: -dataelset2dtrs
+.. index:: single: -dataelt2dtrs
+.. index:: single: -dataelset2dtrs
 
 .. option:: -data{elt2d,elset2d}trs <transparency>
 
@@ -669,13 +663,12 @@ Show Options
 
 The following options apply to the full tessellations, mesh, etc.
 
-.. index::
-   single: -showtess
-   single: -showtesr
-   single: -showmesh
-   single: -showmeshslice
-   single: -showcsys
-   single: -showscale
+.. index:: single: -showtess
+.. index:: single: -showtesr
+.. index:: single: -showmesh
+.. index:: single: -showmeshslice
+.. index:: single: -showcsys
+.. index:: single: -showscale
 
 .. option:: -show{tess,tesr,mesh,meshslice,meshsliceelt1d,csys,scale} <logical>
 
@@ -687,16 +680,15 @@ The following options apply to the full tessellations, mesh, etc.
 
 The following option applies to a tessellation or a raster tessellation.
 
-.. index::
-   single: -showcell
-   single: -showpoly
-   single: -showface
-   single: -showedge
-   single: -showver
-   single: -showseed
-   single: -showcrystal
-   single: -showfaceinter
-   single: -showvox
+.. index:: single: -showcell
+.. index:: single: -showpoly
+.. index:: single: -showface
+.. index:: single: -showedge
+.. index:: single: -showver
+.. index:: single: -showseed
+.. index:: single: -showcrystal
+.. index:: single: -showfaceinter
+.. index:: single: -showvox
 
 .. option:: -show{cell,poly,face,edge,ver,seed,crystal,faceinter,vox} <logical>
 
@@ -713,18 +705,17 @@ The following option applies to a tessellation or a raster tessellation.
 
 The following options apply to the entities of the mesh.  The options apply to 3D elements (:data:`elt3d`) and element sets (:data:`elset3d`), 2D elements (:data:`elt2d`) and element sets (:data:`elset2d`), 1D elements (:data:`elt1d`) and element sets (:data:`elset1d`), 0D elements (:data:`elt0d`) and element sets (:data:`elset0d`), and nodes (:data:`nodes`). Also note that the :data:`elt` and :data:`elset` can be used to denote the highest-dimension elements and elsets.
 
-.. index::
-   single: -showelt
-   single: -showelset
-   single: -showelt0d
-   single: -showelt1d
-   single: -showelt2d
-   single: -showelt3d
-   single: -showelset0d
-   single: -showelset1d
-   single: -showelset2d
-   single: -showelset3d
-   single: -shownode
+.. index:: single: -showelt
+.. index:: single: -showelset
+.. index:: single: -showelt0d
+.. index:: single: -showelt1d
+.. index:: single: -showelt2d
+.. index:: single: -showelt3d
+.. index:: single: -showelset0d
+.. index:: single: -showelset1d
+.. index:: single: -showelset2d
+.. index:: single: -showelset3d
+.. index:: single: -shownode
 
 .. option:: -show{elt,elset,elt{0-3}d,elset{0-3}d,node} <logical>
 

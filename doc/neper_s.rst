@@ -1,5 +1,4 @@
-.. index::
-   single: -S
+.. index:: single: -S
 
 .. _neper_s:
 
