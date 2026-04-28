@@ -1,0 +1,23 @@
+name: Run all jobs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  website:
+    name: Website
+    uses: ./.github/workflows/website.yaml
+
+  linux:
+    name: Linux
+    uses: ./.github/workflows/linux.yaml
+
+  macos:
+    name: MacOS
+    uses: ./.github/workflows/macos.yaml
