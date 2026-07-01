@@ -37,11 +37,11 @@ jobs:
         env:
           MACOSX_DEPLOYMENT_TARGET: 10.15
         run: |
-          export LDFLAGS="-L$(brew --prefix libomp)/lib"
           cmake \
             -DCMAKE_C_COMPILER=$(brew --prefix llvm@18)/bin/clang \
             -DCMAKE_CXX_COMPILER=$(brew --prefix llvm@18)/bin/clang++ \
             -DCMAKE_PREFIX_PATH="$(brew --prefix)" \
+            -DOpenMP_ROOT="$(brew --prefix libomp)" \
             ..
 
       - name: Build Neper executable
