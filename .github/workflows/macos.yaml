@@ -41,11 +41,7 @@ jobs:
           cmake \
             -DCMAKE_C_COMPILER=$(brew --prefix llvm@18)/bin/clang \
             -DCMAKE_CXX_COMPILER=$(brew --prefix llvm@18)/bin/clang++ \
-            -DOpenMP_C_FLAGS="-fopenmp -I$(brew --prefix libomp)/include" \
-            -DOpenMP_CXX_FLAGS="-fopenmp -I$(brew --prefix libomp)/include" \
-            -DOpenMP_C_LIB_NAMES="omp" \
-            -DOpenMP_CXX_LIB_NAMES="omp" \
-            -DOpenMP_omp_LIBRARY=$(brew --prefix libomp)/lib/libomp.dylib \
+            -DCMAKE_PREFIX_PATH="$(brew --prefix)" \
             ..
 
       - name: Build Neper executable
